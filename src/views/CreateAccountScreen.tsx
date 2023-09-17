@@ -3,10 +3,9 @@ import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 import {NativeBaseProvider, Container, Stack, Input, Button} from 'native-base';
 
-import Icon from 'react-native-vector-icons/FontAwesome6';
 import styles from '../styles/styles';
 
-function LoginScreen({navigation}: {navigation: any}): JSX.Element {
+function CreateAccountScreen({navigation}: {navigation: any}): JSX.Element {
   return (
     <NativeBaseProvider>
       <Container
@@ -14,16 +13,15 @@ function LoginScreen({navigation}: {navigation: any}): JSX.Element {
         w="100%">
         <Stack direction="column" mb="2.5" mt="1.5" space={3}>
           <Stack direction="row" space={1} alignItems="flex-end">
-            <Text style={styles.boldH4}>ยินดีต้อนรับ</Text>
-            <Icon name="person-falling" style={styles.icon2} />
+            <Text style={styles.boldH4}>สมัครสมาชิก</Text>
           </Stack>
           <Stack direction="row" space={1} alignItems="flex-end">
-            <Text style={styles.caption}>ลงชื่อเข้าใช้ด้านล่าง หรือ</Text>
+            <Text style={styles.caption}>กรอกข้อมูลสมาชิกด้านล่าง หรือ</Text>
             <TouchableOpacity
               style={styles.button}
-              onPress={() => navigation.navigate('createAccount')}>
+              onPress={() => navigation.navigate('Login')}>
               <Text style={[styles.captionUnderline, {color: '#607d8b'}]}>
-                สมัครสมาชิก
+                เข้าสู่ระบบ
               </Text>
             </TouchableOpacity>
           </Stack>
@@ -34,7 +32,6 @@ function LoginScreen({navigation}: {navigation: any}): JSX.Element {
         w="100%"
         alignItems="center"
         style={{marginTop: 60, marginBottom: 10}}>
-        <Text style={styles.boldH3}>Fall Detection</Text>
         <Input
           w={{
             base: '85%',
@@ -56,12 +53,13 @@ function LoginScreen({navigation}: {navigation: any}): JSX.Element {
           style={{marginTop: 20}}
           w="70%"
           backgroundColor={'#57727e'}
-          borderRadius="full">
-          เข้าสู่ระบบ
+          borderRadius="full"
+          onPress={() => navigation.navigate('Infomation')}>
+          สมัครสมาชิก
         </Button>
       </Stack>
     </NativeBaseProvider>
   );
 }
 
-export default LoginScreen;
+export default CreateAccountScreen;
